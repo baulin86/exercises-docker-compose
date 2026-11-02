@@ -1,0 +1,16 @@
+# use here COPY 1_13 .
+FROM golang:1.16
+
+WORKDIR /app
+
+#ENV CORS_ALLOWED_ORIGINS=http://localhost:5001
+ENV REQUEST_ORIGIN=http://localhost:5001
+
+COPY 1_13 .
+
+RUN go build 
+
+CMD ["./server"]
+
+EXPOSE 8080
+
